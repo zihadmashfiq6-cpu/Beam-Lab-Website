@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import VideoCard from '../components/VideoCard.astro';
+import VideoModal from '../components/VideoModal.astro';
+import messages from '../data/messages.json';
+
+const featured = messages.find((m) => m.featured) ?? messages[0];
+const rest = messages.filter((m) => m !== featured);
+---
+
+<Layout title="Address from Lab Members" description="Video messages from BEaM Lab faculty, students, and alumni.">
+  <PageHeader eyebrow="Messages" title="Address from lab members" intro="Hear directly from the people of BEaM Lab — what we work on, why it matters, and what it's like to be part of the team." />
+
+  <section class="py-16">
+    <div class="container-x">
+      <div class="reveal"><VideoCard {...featured} large /></div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {rest.map((m, i) => (
+          <div class="reveal" style={`transition-delay:${(i % 3) * 80}ms`}><VideoCard {...m} /></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <VideoModal />
+</Layout>

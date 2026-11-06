@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Avatar from '../../components/Avatar.astro';
+import projects from '../../data/projects.json';
+import research from '../../data/research.json';
+import people from '../../data/people.json';
+import { url } from '../../lib/url';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { project: p } }));
+}
+
+const { project } = Astro.props;
+const area = research.find((r) => r.slug === project.area);
+const team = project.team.map((id) => people.find((p) => p.id === id)).filter((p) => p !== undefined);
+---
+
+<Layout title={project.title} description={project.summary} image={project.image || undefined}>
+  <PageHeader eyebrow={area?.title ?? 'Project'} title={project.title} intro={project.summary}>
+    <div class="mt-8 flex flex-wrap gap-3 text-sm">
+      <span class="chip !bg-signal-500 !text-navy-950">{project.status}</span>
+      <span class="chip !bg-white/10 !text-white">{project.years}</span>
+      <span class="chip !bg-white/10 !text-white">Sponsor: {project.sponsor}</span>
+    </div>
+  </PageHeader>
+
+  <section class="py-16">
+    <div class="container-x grid gap-12 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <div class="relative mb-10 aspect-[16/9] overflow-hidden rounded-3xl bg-gradient-to-br from-navy-700 to-navy-950">
+          {project.image ? (
+            <img src={url(project.image)} alt={project.title} class="h-full w-full object-cover" />
+          ) : (
+            <>
+              <div class="bg-grid absolute inset-0" aria-hidden="true"></div>
+              <p class="absolute inset-0 flex items-center justify-center text-sm text-white/50">Project image placeholder</p>
+            </>
+          )}
+        </div>
+        <div class="prose-lab text-lg">
+          {project.body.map((para) => <p>{para}</p>)}
+        </div>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="card p-6 hover:translate-y-0">
+          <h2 class="text-lg font-semibold">Project team</h2>
+          <ul class="mt-4 space-y-4">
+            {team.map((m) => (
+              <li class="flex items-center gap-3">
+                <Avatar name={m.name} photo={m.photo} size="sm" />
+                <div>
+                  <p class="font-semibold text-navy-900 dark:text-white">{m.name}</p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">{m.role}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <a href={url('/projects')} class="inline-block font-semibold text-navy-600 hover:text-signal-600 dark:text-signal-400">← All projects</a>
+      </aside>
+    </div>
+  </section>
+</Layout>

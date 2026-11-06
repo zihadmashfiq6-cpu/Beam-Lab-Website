@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PointCloudHero from '../components/PointCloudHero.astro';
+import ResearchIcon from '../components/ResearchIcon.astro';
+import VideoCard from '../components/VideoCard.astro';
+import VideoModal from '../components/VideoModal.astro';
+import site from '../data/site.json';
+import research from '../data/research.json';
+import projects from '../data/projects.json';
+import news from '../data/news.json';
+import messages from '../data/messages.json';
+import { url } from '../lib/url';
+
+const featured = messages.find((m) => m.featured) ?? messages[0];
+const latestNews = [...news].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+const fmt = (d: string) => new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+
+<Layout>
+  <!-- Hero -->
+  <section class="relative flex min-h-[92vh] items-center overflow-hidden bg-navy-950">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(20,184,166,0.18),transparent_60%)]" aria-hidden="true"></div>
+    <PointCloudHero />
+    <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/60 to-transparent lg:via-navy-950/20" aria-hidden="true"></div>
+    <div class="container-x relative py-32">
+      <div class="max-w-2xl">
+        <p class="eyebrow !text-signal-400 animate-[fadeUp_.8s_ease_both]">{site.department} · {site.university}</p>
+        <h1 class="mt-5 text-5xl leading-[1.05] font-bold !text-white sm:text-6xl lg:text-7xl animate-[fadeUp_.8s_.1s_ease_both]">
+          From point clouds to <span class="bg-gradient-to-r from-signal-300 to-amber-accent bg-clip-text text-transparent">smarter infrastructure</span>
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300 animate-[fadeUp_.8s_.2s_ease_both]">{site.description}</p>
+        <div class="mt-9 flex flex-wrap gap-3 animate-[fadeUp_.8s_.3s_ease_both]">
+          <a href={url('/research')} class="btn-primary">Explore our research
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M5 12h14m-6-6 6 6-6 6" /></svg>
+          </a>
+          <a href={url('/people')} class="btn-ghost">Meet the team</a>
+        </div>
+      </div>
+    </div>
+    <a href="#stats" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 hover:text-white" aria-label="Scroll down">
+      <svg class="h-6 w-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="m6 9 6 6 6-6" /></svg>
+    </a>
+  </section>
+
+  <!-- Stats -->
+  <section id="stats" class="border-b border-slate-200 bg-slate-50 dark:border-white/10 dark:bg-navy-900/40">
+    <dl class="container-x grid grid-cols-2 gap-8 py-12 md:grid-cols-4">
+      {site.stats.map((s, i) => (
+        <div class="reveal flex flex-col-reverse text-center" style={`transition-delay:${i * 80}ms`}>
+          <dt class="mt-1 text-sm text-slate-500 dark:text-slate-400">{s.label}</dt>
+          <dd class="font-display text-4xl font-bold text-navy-800 dark:text-white">{s.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <!-- Research areas -->
+  <section class="py-24">
+    <div class="container-x">
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <p class="eyebrow">What we do</p>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Research areas</h2>
+          <p class="mt-4 text-lg">We combine field data collection, computer vision, and engineering knowledge to solve real problems for the agencies and builders who manage our infrastructure.</p>
+        </div>
+        <a href={url('/research')} class="font-semibold text-navy-600 hover:text-signal-600 dark:text-signal-400">All research →</a>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {research.map((r, i) => (
+          <a href={url(`/research#${r.slug}`)} class="card reveal group p-6" style={`transition-delay:${i * 80}ms`}>
+            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-50 text-navy-600 transition group-hover:bg-signal-500 group-hover:text-navy-950 dark:bg-white/10 dark:text-signal-400">
+              <ResearchIcon name={r.icon} />
+            </span>
+            <h3 class="mt-5 text-lg font-semibold">{r.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed">{r.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured projects -->
+  <section class="bg-slate-50 py-24 dark:bg-navy-900/40">
+    <div class="container-x">
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="eyebrow">Featured work</p>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Current projects</h2>
+        </div>
+        <a href={url('/projects')} class="font-semibold text-navy-600 hover:text-signal-600 dark:text-signal-400">All projects →</a>
+      </div>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {projects.filter((p) => p.status === 'Active').slice(0, 3).map((p, i) => (
+          <a href={url(`/projects/${p.slug}`)} class="card reveal group overflow-hidden" style={`transition-delay:${i * 80}ms`}>
+            <div class="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-navy-700 to-navy-950">
+              {p.image ? (
+                <img src={url(p.image)} alt={p.title} class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+              ) : (
+                <div class="bg-grid absolute inset-0" aria-hidden="true"></div>
+              )}
+              <span class="chip absolute top-4 left-4 !bg-signal-500 !text-navy-950">{p.status}</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold leading-snug group-hover:text-navy-600 dark:group-hover:text-signal-400">{p.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed">{p.summary}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured message -->
+  <section class="py-24">
+    <div class="container-x">
+      <div class="reveal mb-10 max-w-2xl">
+        <p class="eyebrow">A word from the lab</p>
+        <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Address from lab members</h2>
+      </div>
+      <div class="reveal">
+        <VideoCard {...featured} large />
+      </div>
+      <p class="reveal mt-6 text-right"><a href={url('/messages')} class="font-semibold text-navy-600 hover:text-signal-600 dark:text-signal-400">More messages →</a></p>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="bg-slate-50 py-24 dark:bg-navy-900/40">
+    <div class="container-x">
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="eyebrow">Latest</p>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">News</h2>
+        </div>
+        <a href={url('/news')} class="font-semibold text-navy-600 hover:text-signal-600 dark:text-signal-400">All news →</a>
+      </div>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {latestNews.map((n, i) => (
+          <article class="card reveal p-6" style={`transition-delay:${i * 80}ms`}>
+            <div class="flex items-center gap-3 text-xs">
+              <span class="chip">{n.tag}</span>
+              <time datetime={n.date} class="text-slate-500 dark:text-slate-400">{fmt(n.date)}</time>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold leading-snug">{n.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed">{n.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden bg-navy-900 py-20">
+    <div class="bg-grid absolute inset-0 opacity-50" aria-hidden="true"></div>
+    <div class="container-x reveal relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+      <div class="max-w-xl">
+        <h2 class="text-3xl font-bold !text-white">Join BEaM Lab</h2>
+        <p class="mt-3 text-slate-300">We're looking for motivated graduate and undergraduate students interested in reality capture, AI, and construction technology.</p>
+      </div>
+      <a href={url('/contact')} class="btn-primary">Get in touch</a>
+    </div>
+  </section>
+
+  <VideoModal />
+</Layout>
+
+<style is:global>
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: none; }
+  }
+</style>

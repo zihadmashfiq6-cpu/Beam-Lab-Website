@@ -1,0 +1,8 @@
+[
+  { "title": "Placeholder: Deep learning-based spall detection on bridge decks from mobile LiDAR point clouds", "authors": "Rivera, A., Shah, P., Doe, J.", "venue": "Automation in Construction", "year": 2026, "type": "Journal", "topics": ["LiDAR", "Deep Learning", "Bridges"], "doi": "", "link": "" },
+  { "title": "Placeholder: An automated scan-to-BIM workflow for existing campus buildings", "authors": "Lee, M., Doe, J.", "venue": "Journal of Computing in Civil Engineering", "year": 2026, "type": "Journal", "topics": ["BIM", "Digital Twins"], "doi": "", "link": "" },
+  { "title": "Placeholder: Weekly UAV surveys for earthwork volume tracking: accuracy and practice", "authors": "Nguyen, S., Rivera, A., Doe, J.", "venue": "ASCE Construction Research Congress", "year": 2025, "type": "Conference", "topics": ["UAV", "Construction"], "doi": "", "link": "" },
+  { "title": "Placeholder: Estimating pavement roughness directly from mobile laser scanning data", "authors": "Shah, P., Doe, J.", "venue": "Transportation Research Record", "year": 2025, "type": "Journal", "topics": ["LiDAR", "Pavements"], "doi": "", "link": "" },
+  { "title": "Placeholder: Registration quality metrics for multi-platform point clouds", "authors": "Doe, J., Ortiz, S.", "venue": "ISPRS Journal of Photogrammetry and Remote Sensing", "year": 2024, "type": "Journal", "topics": ["LiDAR"], "doi": "", "link": "" },
+  { "title": "Placeholder: Field guide for terrestrial laser scanning of highway bridges", "authors": "Doe, J., Chen, E.", "venue": "Technical Report, Placeholder DOT", "year": 2023, "type": "Report", "topics": ["LiDAR", "Bridges"], "doi": "", "link": "" }
+]

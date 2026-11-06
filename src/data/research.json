@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "reality-capture",
+    "title": "Reality Capture & LiDAR",
+    "icon": "scan",
+    "summary": "Terrestrial, mobile, and UAV laser scanning to build accurate 3D models of bridges, roads, and construction sites.",
+    "description": "We develop workflows for collecting and registering large point clouds from terrestrial, mobile, and aerial platforms. Our focus is on data quality, efficient field procedures, and turning raw scans into measurements engineers can trust."
+  },
+  {
+    "slug": "intelligent-infrastructure",
+    "title": "Intelligent Infrastructure",
+    "icon": "bridge",
+    "summary": "Automated inspection and condition assessment using machine learning on point clouds and imagery.",
+    "description": "Using deep learning on 3D and 2D data, we detect defects, measure deformation, and track change over time — helping agencies prioritize maintenance with objective, repeatable data."
+  },
+  {
+    "slug": "digital-twins",
+    "title": "Digital Twins & BIM",
+    "icon": "cube",
+    "summary": "Scan-to-BIM, as-built verification, and digital twins that connect field conditions to design models.",
+    "description": "We link reality capture with Building Information Modeling to compare as-built and as-designed conditions, automate quantity take-off, and keep digital twins up to date throughout a project's life."
+  },
+  {
+    "slug": "construction-management",
+    "title": "Construction Automation",
+    "icon": "crane",
+    "summary": "Progress monitoring, safety analytics, and productivity tools for the jobsite.",
+    "description": "From automated progress tracking to safety zone monitoring, we build tools that help construction teams make faster, data-driven decisions in the field."
+  }
+]

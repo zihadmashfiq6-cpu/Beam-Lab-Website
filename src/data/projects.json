@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "bridge-deck-scanning",
+    "title": "Automated Bridge Deck Condition Assessment",
+    "area": "intelligent-infrastructure",
+    "status": "Active",
+    "years": "2024 – present",
+    "sponsor": "Placeholder: State DOT",
+    "image": "",
+    "summary": "Mobile LiDAR and deep learning to detect spalls, cracks, and delamination on bridge decks at highway speed.",
+    "body": [
+      "This is placeholder text. Describe the problem the project addresses, why it matters, and who benefits.",
+      "Explain the approach: data collection platforms, processing pipeline, and the models or methods developed.",
+      "Summarize key results so far, and link to related publications or datasets."
+    ],
+    "team": ["dr-jane-doe", "alex-rivera", "priya-shah"]
+  },
+  {
+    "slug": "scan-to-bim",
+    "title": "Scan-to-BIM for Campus Facilities",
+    "area": "digital-twins",
+    "status": "Active",
+    "years": "2025 – present",
+    "sponsor": "Placeholder: University Facilities",
+    "image": "",
+    "summary": "Creating accurate BIM models of existing campus buildings from terrestrial laser scans.",
+    "body": [
+      "This is placeholder text. Describe the project goals and scope.",
+      "Explain the methods and tools used, and what makes the approach new.",
+      "Highlight outcomes and next steps."
+    ],
+    "team": ["dr-jane-doe", "marcus-lee"]
+  },
+  {
+    "slug": "uav-earthwork",
+    "title": "UAV Photogrammetry for Earthwork Monitoring",
+    "area": "construction-management",
+    "status": "Active",
+    "years": "2023 – present",
+    "sponsor": "Placeholder: Industry Partner",
+    "image": "",
+    "summary": "Weekly drone surveys to track cut/fill volumes and compare progress against the schedule.",
+    "body": [
+      "This is placeholder text. Describe the project goals and scope.",
+      "Explain the methods and tools used.",
+      "Highlight outcomes and next steps."
+    ],
+    "team": ["alex-rivera", "sofia-nguyen"]
+  },
+  {
+    "slug": "pavement-roughness",
+    "title": "Pavement Roughness from Mobile Point Clouds",
+    "area": "reality-capture",
+    "status": "Completed",
+    "years": "2022 – 2024",
+    "sponsor": "Placeholder: Federal Agency",
+    "image": "",
+    "summary": "Estimating IRI and rutting directly from mobile LiDAR data to support network-level pavement management.",
+    "body": [
+      "This is placeholder text. Describe the project goals and scope.",
+      "Explain the methods and tools used.",
+      "Highlight outcomes and next steps."
+    ],
+    "team": ["dr-jane-doe", "priya-shah"]
+  }
+]

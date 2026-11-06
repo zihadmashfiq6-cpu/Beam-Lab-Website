@@ -1,0 +1,8 @@
+[
+  { "name": "Dr. Jane Doe", "title": "Principal Investigator", "youtubeId": "", "quote": "Our lab bridges field data and intelligent infrastructure.", "featured": true },
+  { "name": "Alex Rivera", "title": "Ph.D. Student", "youtubeId": "", "quote": "Every scan tells a story about the structure — our job is to read it." },
+  { "name": "Priya Shah", "title": "Ph.D. Student", "youtubeId": "", "quote": "I love that our research goes straight from the field to decisions that keep people safe." },
+  { "name": "Marcus Lee", "title": "M.S. Student", "youtubeId": "", "quote": "BEaM Lab taught me how to turn millions of points into something useful." },
+  { "name": "Sofia Nguyen", "title": "M.S. Student", "youtubeId": "", "quote": "Flying drones over job sites never gets old." },
+  { "name": "Samuel Ortiz", "title": "Alumnus, M.S. 2024", "youtubeId": "", "quote": "The skills I learned here are the ones I use every day at work." }
+]

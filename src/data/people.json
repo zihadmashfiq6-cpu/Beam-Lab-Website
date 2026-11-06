@@ -1,0 +1,10 @@
+[
+  { "id": "dr-jane-doe", "name": "Dr. Jane Doe", "role": "Principal Investigator", "group": "faculty", "title": "Associate Professor, Civil Engineering", "photo": "", "bio": "Placeholder bio. Research interests include reality capture, infrastructure inspection, and digital twins.", "email": "jdoe@georgiasouthern.edu", "links": { "scholar": "#", "linkedin": "#" } },
+  { "id": "alex-rivera", "name": "Alex Rivera", "role": "Ph.D. Student", "group": "students", "title": "Mobile LiDAR & Deep Learning", "photo": "", "bio": "Placeholder bio.", "email": "", "links": { "linkedin": "#" } },
+  { "id": "priya-shah", "name": "Priya Shah", "role": "Ph.D. Student", "group": "students", "title": "Pavement & Bridge Condition Assessment", "photo": "", "bio": "Placeholder bio.", "email": "", "links": {} },
+  { "id": "marcus-lee", "name": "Marcus Lee", "role": "M.S. Student", "group": "students", "title": "Scan-to-BIM", "photo": "", "bio": "Placeholder bio.", "email": "", "links": {} },
+  { "id": "sofia-nguyen", "name": "Sofia Nguyen", "role": "M.S. Student", "group": "students", "title": "UAV Photogrammetry", "photo": "", "bio": "Placeholder bio.", "email": "", "links": {} },
+  { "id": "jordan-brooks", "name": "Jordan Brooks", "role": "Undergraduate Researcher", "group": "students", "title": "Field Data Collection", "photo": "", "bio": "Placeholder bio.", "email": "", "links": {} },
+  { "id": "samuel-ortiz", "name": "Samuel Ortiz", "role": "M.S. 2024", "group": "alumni", "title": "Now: Engineer, Placeholder DOT", "photo": "", "bio": "", "email": "", "links": {} },
+  { "id": "emily-chen", "name": "Emily Chen", "role": "M.S. 2023", "group": "alumni", "title": "Now: VDC Specialist, Placeholder Construction Co.", "photo": "", "bio": "", "email": "", "links": {} }
+]

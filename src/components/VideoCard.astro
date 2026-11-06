@@ -1,0 +1,37 @@
+---
+interface Props {
+  name: string;
+  title: string;
+  quote: string;
+  youtubeId?: string;
+  large?: boolean;
+}
+const { name, title, quote, youtubeId = '', large = false } = Astro.props;
+const thumb = youtubeId ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg` : '';
+---
+
+<button
+  type="button"
+  data-video-open
+  data-video-id={youtubeId}
+  data-video-title={`${name} — ${title}`}
+  class:list={['card group w-full overflow-hidden text-left', large && 'md:grid md:grid-cols-5']}
+  aria-label={`Play video message from ${name}`}
+>
+  <div class:list={['relative aspect-video overflow-hidden bg-gradient-to-br from-navy-700 via-navy-800 to-navy-950', large && 'md:col-span-3 md:aspect-auto md:min-h-80']}>
+    {thumb ? (
+      <img src={thumb} alt={`Video thumbnail: ${name}`} class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+    ) : (
+      <div class="bg-grid absolute inset-0 opacity-60" aria-hidden="true"></div>
+    )}
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-950/70 to-transparent" aria-hidden="true"></div>
+    <span class="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-navy-900 shadow-lg transition group-hover:scale-110 group-hover:bg-signal-400" aria-hidden="true">
+      <svg class="ml-1 h-7 w-7" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+    </span>
+  </div>
+  <div class:list={['p-6', large && 'md:col-span-2 md:flex md:flex-col md:justify-center md:p-10']}>
+    <p class:list={['font-display leading-snug text-navy-900 dark:text-white', large ? 'text-2xl' : 'text-lg']}>“{quote}”</p>
+    <p class="mt-4 font-semibold text-navy-800 dark:text-white">{name}</p>
+    <p class="text-sm text-slate-500 dark:text-slate-400">{title}</p>
+  </div>
+</button>

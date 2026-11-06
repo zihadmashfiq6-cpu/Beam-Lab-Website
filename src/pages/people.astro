@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Avatar from '../components/Avatar.astro';
+import people from '../data/people.json';
+
+const faculty = people.filter((p) => p.group === 'faculty');
+const students = people.filter((p) => p.group === 'students');
+const alumni = people.filter((p) => p.group === 'alumni');
+const linkLabels: Record<string, string> = { scholar: 'Google Scholar', linkedin: 'LinkedIn', website: 'Website', github: 'GitHub' };
+---
+
+<Layout title="People" description="Faculty, students, and alumni of BEaM Lab at Georgia Southern University.">
+  <PageHeader eyebrow="People" title="The team behind the scans" intro="Faculty, graduate students, and undergraduate researchers working together across the field and the lab." />
+
+  <section class="py-20">
+    <div class="container-x">
+      <h2 class="reveal text-2xl font-bold">Faculty</h2>
+      <div class="mt-8 grid gap-6">
+        {faculty.map((p) => (
+          <article class="card reveal flex flex-col gap-6 p-8 hover:translate-y-0 sm:flex-row sm:items-center">
+            <Avatar name={p.name} photo={p.photo} size="lg" />
+            <div class="flex-1">
+              <p class="eyebrow">{p.role}</p>
+              <h3 class="mt-1 text-2xl font-bold">{p.name}</h3>
+              <p class="text-slate-500 dark:text-slate-400">{p.title}</p>
+              <p class="mt-3 leading-relaxed">{p.bio}</p>
+              <div class="mt-4 flex flex-wrap gap-4 text-sm font-semibold">
+                {p.email && <a href={`mailto:${p.email}`} class="text-navy-600 hover:text-signal-600 dark:text-signal-400">{p.email}</a>}
+                {Object.entries(p.links).map(([k, v]) => (
+                  <a href={v} class="text-navy-600 hover:text-signal-600 dark:text-signal-400" target="_blank" rel="noopener">{linkLabels[k] ?? k}</a>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <h2 class="reveal mt-20 text-2xl font-bold">Students</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {students.map((p, i) => (
+          <article class="card reveal p-6 text-center" style={`transition-delay:${(i % 3) * 80}ms`}>
+            <div class="flex justify-center"><Avatar name={p.name} photo={p.photo} /></div>
+            <h3 class="mt-4 text-lg font-semibold">{p.name}</h3>
+            <p class="text-sm font-medium text-signal-600 dark:text-signal-400">{p.role}</p>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">{p.title}</p>
+          </article>
+        ))}
+      </div>
+
+      <h2 class="reveal mt-20 text-2xl font-bold">Alumni</h2>
+      <ul class="reveal mt-8 divide-y divide-slate-200 rounded-2xl border border-slate-200 dark:divide-white/10 dark:border-white/10">
+        {alumni.map((p) => (
+          <li class="flex flex-wrap items-center justify-between gap-2 px-6 py-4">
+            <span class="font-semibold text-navy-900 dark:text-white">{p.name} <span class="font-normal text-slate-500 dark:text-slate-400">· {p.role}</span></span>
+            <span class="text-sm">{p.title}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>

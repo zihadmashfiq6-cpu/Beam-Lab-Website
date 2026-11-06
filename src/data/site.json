@@ -1,0 +1,21 @@
+{
+  "name": "BEaM Lab",
+  "tagline": "Sensing, modeling, and managing the built environment",
+  "description": "BEaM Lab at Georgia Southern University turns field data — LiDAR, imagery, and sensors — into intelligent tools for safer, smarter infrastructure.",
+  "university": "Georgia Southern University",
+  "department": "Department of Civil Engineering & Construction",
+  "address": ["Carruth Building", "Georgia Southern University", "Statesboro, GA 30458"],
+  "email": "beamlab@georgiasouthern.edu",
+  "phone": "(912) 000-0000",
+  "social": {
+    "github": "https://github.com/",
+    "linkedin": "https://www.linkedin.com/",
+    "youtube": "https://www.youtube.com/"
+  },
+  "stats": [
+    { "value": "12+", "label": "Active projects" },
+    { "value": "40+", "label": "Publications" },
+    { "value": "15", "label": "Lab members" },
+    { "value": "3B+", "label": "Points captured" }
+  ]
+}
