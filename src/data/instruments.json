@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "terrestrial-laser-scanner",
+    "name": "Terrestrial Laser Scanner",
+    "model": "Placeholder: brand & model",
+    "category": "Laser Scanning",
+    "icon": "scanner",
+    "image": "",
+    "description": "Tripod-mounted LiDAR scanner for high-accuracy 3D capture of bridges, buildings, and construction sites.",
+    "specs": { "Range": "Up to 350 m", "Accuracy": "± 2 mm", "Scan rate": "2 million pts/s" },
+    "usedIn": ["scan-to-bim", "pavement-roughness"]
+  },
+  {
+    "slug": "mobile-mapping-system",
+    "name": "Mobile Mapping System",
+    "model": "Placeholder: brand & model",
+    "category": "Laser Scanning",
+    "icon": "vehicle",
+    "image": "",
+    "description": "Vehicle-mounted LiDAR with cameras and GNSS/IMU for capturing roads and bridge decks at traffic speed.",
+    "specs": { "Sensors": "LiDAR, 360° camera, GNSS/IMU", "Speed": "Up to 100 km/h", "Accuracy": "± 1–2 cm" },
+    "usedIn": ["bridge-deck-scanning", "pavement-roughness"]
+  },
+  {
+    "slug": "handheld-slam-scanner",
+    "name": "Handheld SLAM Scanner",
+    "model": "Placeholder: brand & model",
+    "category": "Laser Scanning",
+    "icon": "handheld",
+    "image": "",
+    "description": "Walk-through scanner for fast capture of interiors, tunnels, and tight spaces where a tripod is impractical.",
+    "specs": { "Range": "Up to 100 m", "Accuracy": "± 6 mm", "Weight": "~1.5 kg" },
+    "usedIn": ["scan-to-bim"]
+  },
+  {
+    "slug": "uav-lidar",
+    "name": "UAV LiDAR System",
+    "model": "Placeholder: brand & model",
+    "category": "UAV / Drones",
+    "icon": "drone",
+    "image": "",
+    "description": "Drone-mounted LiDAR for corridor mapping, terrain models, and structures that are hard to reach from the ground.",
+    "specs": { "Flight time": "~45 min", "Point rate": "240,000 pts/s", "Vertical accuracy": "± 5 cm" },
+    "usedIn": ["bridge-deck-scanning", "uav-earthwork"]
+  },
+  {
+    "slug": "uav-photogrammetry",
+    "name": "Photogrammetry Drone",
+    "model": "Placeholder: brand & model",
+    "category": "UAV / Drones",
+    "icon": "drone",
+    "image": "",
+    "description": "RTK-enabled camera drone for orthomosaics, surface models, and weekly progress surveys.",
+    "specs": { "Camera": "20 MP, mechanical shutter", "Positioning": "RTK", "Flight time": "~40 min" },
+    "usedIn": ["uav-earthwork"]
+  },
+  {
+    "slug": "gnss-receiver",
+    "name": "GNSS RTK Receivers",
+    "model": "Placeholder: brand & model",
+    "category": "Surveying",
+    "icon": "gnss",
+    "image": "",
+    "description": "Base and rover receivers for establishing control points and georeferencing scan and drone data.",
+    "specs": { "Horizontal accuracy": "± 8 mm + 1 ppm", "Constellations": "GPS, GLONASS, Galileo, BeiDou" },
+    "usedIn": ["uav-earthwork", "bridge-deck-scanning"]
+  },
+  {
+    "slug": "total-station",
+    "name": "Robotic Total Station",
+    "model": "Placeholder: brand & model",
+    "category": "Surveying",
+    "icon": "totalstation",
+    "image": "",
+    "description": "High-precision angle and distance measurement for control networks and deformation monitoring.",
+    "specs": { "Angle accuracy": "1\"", "Distance accuracy": "± 1 mm + 1.5 ppm" },
+    "usedIn": ["scan-to-bim"]
+  },
+  {
+    "slug": "gpu-workstation",
+    "name": "GPU Processing Workstations",
+    "model": "Placeholder: specs",
+    "category": "Computing",
+    "icon": "computer",
+    "image": "",
+    "description": "High-memory workstations for point cloud registration, photogrammetry, and training deep learning models.",
+    "specs": { "GPU": "Placeholder", "RAM": "Placeholder", "Software": "Point cloud, BIM & photogrammetry suites" },
+    "usedIn": ["bridge-deck-scanning", "scan-to-bim"]
+  }
+]

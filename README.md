@@ -17,6 +17,7 @@ All content lives in `src/data/`:
 | `site.json` | Lab name, tagline, address, email, homepage stats |
 | `research.json` | Research areas |
 | `projects.json` | Projects (each gets its own page at `/projects/<slug>`) |
+| `instruments.json` | Lab equipment (`usedIn` lists project slugs) |
 | `people.json` | Faculty (`group: "faculty"`), students, alumni |
 | `publications.json` | Publications (filterable by year/topic) |
 | `news.json` | News items (`date` as `YYYY-MM-DD`) |

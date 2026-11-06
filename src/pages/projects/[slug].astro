@@ -5,6 +5,8 @@ import Avatar from '../../components/Avatar.astro';
 import projects from '../../data/projects.json';
 import research from '../../data/research.json';
 import people from '../../data/people.json';
+import instruments from '../../data/instruments.json';
+import InstrumentIcon from '../../components/InstrumentIcon.astro';
 import { url } from '../../lib/url';
 
 export function getStaticPaths() {
@@ -14,6 +16,7 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 const area = research.find((r) => r.slug === project.area);
 const team = project.team.map((id) => people.find((p) => p.id === id)).filter((p) => p !== undefined);
+const usedInstruments = instruments.filter((i) => i.usedIn.includes(project.slug));
 ---
 
 <Layout title={project.title} description={project.summary} image={project.image || undefined}>
@@ -58,6 +61,23 @@ const team = project.team.map((id) => people.find((p) => p.id === id)).filter((p
             ))}
           </ul>
         </div>
+        {usedInstruments.length > 0 && (
+          <div class="card p-6 hover:translate-y-0">
+            <h2 class="text-lg font-semibold">Instruments used</h2>
+            <ul class="mt-4 space-y-3">
+              {usedInstruments.map((ins) => (
+                <li>
+                  <a href={url(`/instruments#${ins.slug}`)} class="group flex items-center gap-3">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-50 text-navy-600 group-hover:bg-signal-500 group-hover:text-navy-950 dark:bg-white/10 dark:text-signal-400">
+                      <InstrumentIcon name={ins.icon} class="h-5 w-5" />
+                    </span>
+                    <span class="font-medium text-navy-900 group-hover:text-navy-600 dark:text-white dark:group-hover:text-signal-400">{ins.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <a href={url('/projects')} class="inline-block font-semibold text-navy-600 hover:text-signal-600 dark:text-signal-400">← All projects</a>
       </aside>
     </div>
